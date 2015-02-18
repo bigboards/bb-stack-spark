@@ -1,0 +1,7 @@
+tint:
+  owner: <tint-owner>
+  id: <tint-id>
+
+config_path: "/data/<tint-owner>/<tint-id>/config"
+files_path: "/data/<tint-owner>/<tint-id>/files"
+data_path: "/data/<tint-owner>/<tint-id>/data"

@@ -1,0 +1,16 @@
+type: stack
+views:
+  - id: <view-id>
+    label: <view-label>
+    url: <view-url>
+    description: >
+      <view-description>
+
+parameters:
+  - name: <parameter-name>
+    type: [text|boolean]
+    description: <parameter-description>
+
+roles:
+  - name: <role-name>
+    cardinality: [1|n]

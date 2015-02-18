@@ -1,0 +1,10 @@
+- hosts: <host-definition>
+  sudo: yes
+  roles:
+    - { role: <ansible-role>, mode: 'install' }
+
+- hosts: localhost
+  sudo: yes
+  tasks:
+    - name: generate the mapping file
+      template: src=mapping.yml.j2 dest=./mapping.yml
