@@ -1,4 +1,11 @@
+slug: bb-stack-spark
+name: Apache Spark
+description: Apache Spark™ is a fast and general engine for large-scale data processing
 type: stack
+owner:
+  username: bigboards
+  displayName: bigboards
+logo: https://bitbucket-assetroot.s3.amazonaws.com/c/photos/2015/Feb/18/3592780503-2-bb-stack-spark-logo_avatar.png
 views:
   - id: <view-id>
     label: <view-label>
