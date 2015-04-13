@@ -1,9 +1,0 @@
-- hosts: <host-definition>
-  sudo: yes
-  roles:
-    - { role: <ansible-role>, mode: 'uninstall' }
-
-- hosts: localhost
-  sudo: yes
-  tasks:
-    - file: state=absent path=/opt/bb/tints.d/stack/{{ tint.owner }}/{{ tint.id }}

@@ -6,18 +6,36 @@ owner:
   username: bigboards
   displayName: bigboards
 logo: https://bitbucket-assetroot.s3.amazonaws.com/c/photos/2015/Feb/18/3592780503-2-bb-stack-spark-logo_avatar.png
-views:
-  - id: <view-id>
-    label: <view-label>
-    url: <view-url>
-    description: >
-      <view-description>
-
-parameters:
-  - name: <parameter-name>
-    type: [text|boolean]
-    description: <parameter-description>
-
-roles:
-  - name: <role-name>
-    cardinality: [1|n]
+stack:
+  views:
+    - label: WebUI
+      url: http://{{ nodes[hex.name + '-n1'].ip }}:8080/
+      description: The Spark Web UI
+  containers:
+    spark-master:
+      image: bigboards/spark-armv7l
+      command: /opt/spark/sbin/start-master.sh -h {{hex.name + '-n1'}}.hex -d /data
+      ports:
+        - 7077
+        - 8080
+      config: 
+        host_path: all
+        container_path: /opt/spark/conf
+    spark-worker:
+      image: bigboards/spark-armv7l
+      command: /opt/spark/sbin/start-slave.sh 1 spark://{{hex.name}}-n1.hex:7077
+      ports:
+        - 7078
+        - 8081
+      config: 
+        host_path: all
+        container_path: /opt/spark/conf
+  groups:
+    - name: spark-master
+      runs_on: n1
+      containers:
+        - spark-master
+    - name: spark-worker
+      runs_on: all:!n1
+      containers:
+        - spark-worker
