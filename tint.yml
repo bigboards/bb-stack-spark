@@ -12,7 +12,7 @@ stack:
       url: "http://{{ nodes[hex.name + '-n1'].ip }}:8080/"
       description: "The Spark Web UI"
   containers:
-    spark-master:
+    spark_master:
       image: "bigboards/spark-armv7l"
       command: "/opt/spark/sbin/start-master.sh -h {{hex.name + '-n1'}}.hex -d /data"
       ports:
@@ -21,7 +21,7 @@ stack:
       config: 
         host_path: "all"
         container_path: "/opt/spark/conf"
-    spark-worker:
+    spark_worker:
       image: "bigboards/spark-armv7l"
       command: "/opt/spark/sbin/start-slave.sh 1 spark://{{hex.name}}-n1.hex:7077"
       ports:
@@ -31,11 +31,11 @@ stack:
         host_path: "all"
         container_path: "/opt/spark/conf"
   groups:
-    - name: "spark-master"
+    - name: "spark_master"
       runs_on: "n1"
       containers:
-        - "spark-master"
-    - name: "spark-worker"
+        - "spark_master"
+    - name: "spark_worker"
       runs_on: "all:!n1"
       containers:
-        - "spark-worker"
+        - "spark_worker"
