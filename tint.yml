@@ -14,7 +14,7 @@ stack:
   containers:
     spark_master:
       image: "bigboards/spark-armv7l"
-      command: "/opt/spark/sbin/start-master.sh -h {{hex.name + '-n1'}}.hex -d /data"
+      command: "/opt/spark/sbin/start-master.sh -h n1.hex -d /data"
       ports:
         - 7077
         - 8080
