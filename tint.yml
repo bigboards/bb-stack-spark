@@ -14,7 +14,7 @@ stack:
   containers:
     spark_master:
       image: "bigboards/spark-armv7l"
-      command: "/opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker -h {{ hex.name }}-n1.hex -d /data"
+      command: "/opt/spark/bin/spark-class org.apache.spark.deploy.master.Master --ip {{ hex.name }}-n1.hex --port 7077 --webui-port 8080 -h {{ hex.name }}-n1.hex -d /data"
       ports:
         - 7077
         - 8080
@@ -23,7 +23,7 @@ stack:
         container_path: "/opt/spark/conf"
     spark_worker:
       image: "bigboards/spark-armv7l"
-      command: "/opt/spark/bin/spark-class 1 spark://{{ hex.name }}-n1.hex:7077"
+      command: "/opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://{{ hex.name }}-n1.hex:7077"
       ports:
         - 7078
         - 8081
