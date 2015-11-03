@@ -48,6 +48,6 @@
 # - SPARK_PID_DIR       Where the pid file is stored. (Default: /tmp)
 # - SPARK_IDENT_STRING  A string representing this instance of spark. (Default: $USER)
 # - SPARK_NICENESS      The scheduling priority for daemons. (Default: 0)
-
-SPARK_LOCAL_IP="{{ansible_eth0.ipv4.address}}"
-SPARK_MASTER_IP="{{hex.name}}-n1.hex"
+SPARK_LOCAL_IP="0.0.0.0"
+SPARK_MASTER_IP="0.0.0.0"
+SPARK_PUBLIC_DNS={{hex.name}}.hex.bigboards.io
