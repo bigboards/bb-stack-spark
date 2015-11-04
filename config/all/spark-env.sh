@@ -50,5 +50,5 @@
 # - SPARK_NICENESS      The scheduling priority for daemons. (Default: 0)
 SPARK_LOCAL_IP="node-{{ansible_local.bb.node.sequence}}.{{hex.name}}.hex.bigboards.io"
 SPARK_LOCAL_HOSTNAME="node-{{ansible_local.bb.node.sequence}}.{{hex.name}}.hex.bigboards.io"
-SPARK_MASTER_IP="{{hex.name}}.hex.bigboards.io"
-SPARK_PUBLIC_DNS="{{hex.name}}.hex.bigboards.io"
+SPARK_MASTER_IP="node-1.{{hex.name}}.hex.bigboards.io"
+SPARK_PUBLIC_DNS="node-{{ansible_local.bb.node.sequence}}.{{hex.name}}.hex.bigboards.io"
