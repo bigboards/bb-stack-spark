@@ -51,4 +51,4 @@
 SPARK_LOCAL_IP="0.0.0.0"
 SPARK_LOCAL_HOSTNAME="{{ ansible_hostname }}"
 SPARK_MASTER_IP="{{hex.name}}-n1.hex"
-SPARK_PUBLIC_DNS="{{hex.name}}-{{ansible_local.bb.node.sequence}}.{{hex.name}}.hex.bigboards.io"
+SPARK_PUBLIC_DNS="{{hex.name}}-n{{ansible_local.bb.node.sequence}}.{{hex.name}}.hex.bigboards.io"
